@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WA-PRO-REPORTER | Nawab ZADA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: radial-gradient(circle at center, #05161a 0%, #000000 100%);
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(10, 25, 30, 0.9);
+            border: 1px solid #00ffcc44;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+        }
+        .btn-unban { background: linear-gradient(45deg, #00b09b, #96c93d); }
+        .btn-ban { background: linear-gradient(45deg, #cb2d3e, #ef473a); }
+        #lockOverlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div id="lockOverlay">
+        <div class="glass-card p-8 text-center max-w-sm border-green-500">
+            <i class="fab fa-whatsapp text-6xl text-green-500 mb-4 animate-bounce"></i>
+            <h2 class="text-xl font-bold mb-4">UNLOCK TOOL</h2>
+            <p class="text-gray-400 text-sm mb-6">Jani, pehle hamara WhatsApp channel follow karein phir tool use karein.</p>
+            <a href="https://whatsapp.com/channel/0029VbB47ttDDmFNztpnZf2m" target="_blank" onclick="unlock()" class="block w-full py-3 bg-green-600 rounded-lg font-bold">FOLLOW & PROCEED</a>
+        </div>
+    </div>
+
+    <div id="mainTool" class="hidden">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-black text-green-400 tracking-tighter uppercase italic">
+                WA-PRO-REPORTER
+            </h1>
+            <p class="text-gray-500 text-xs mt-2">DEV: NAWAB ZADA HACKER 🔥🙌🖥️</p>
+            <div class="h-1 w-20 bg-red-600 mx-auto mt-4"></div>
+        </div>
+
+        <div class="max-w-2xl mx-auto space-y-8">
+            <div class="glass-card p-6 border-l-4 border-green-500">
+                <h3 class="text-green-400 font-bold mb-4 uppercase"><i class="fas fa-unlock mr-2"></i> Unban Account</h3>
+                <input type="text" id="unbanNum" placeholder="+923XXXXXXXXX" class="w-full bg-black/50 border border-green-900 p-4 rounded text-white outline-none focus:border-green-400">
+                <button onclick="generateAppeal('unban')" class="w-full mt-4 btn-unban py-4 rounded font-black uppercase shadow-lg active:scale-95 transition-all">Generate & Send Appeal</button>
+            </div>
+
+            <div class="glass-card p-6 border-l-4 border-red-500">
+                <h3 class="text-red-500 font-bold mb-4 uppercase"><i class="fas fa-user-slash mr-2"></i> Report Violation</h3>
+                <input type="text" id="banNum" placeholder="+923XXXXXXXXX" class="w-full bg-black/50 border border-red-900 p-4 rounded text-white outline-none focus:border-red-400">
+                <button onclick="generateAppeal('ban')" class="w-full mt-4 btn-ban py-4 rounded font-black uppercase shadow-lg active:scale-95 transition-all">Report Number</button>
+            </div>
+        </div>
+
+        <footer class="text-center mt-20 text-gray-600 text-[10px] tracking-widest">
+            &copy; 2026 NAWAB ZADA | QAHAR FORCE EXCLUSIVE
+        </footer>
+    </div>
+
+    <script>
+        function unlock() {
+            setTimeout(() => {
+                document.getElementById('lockOverlay').style.display = 'none';
+                document.getElementById('mainTool').classList.remove('hidden');
+            }, 1000);
+        }
+
+        const unbanAppeals = [
+            "My account was banned without reason. I am a professional user and I follow all rules. Please restore it.",
+            "I am experiencing an issue where my number is flagged mistakenly. I have not sent any spam. Kindly re-verify.",
+            "Urgent: My business account is suspended. I haven't violated any terms of service. Please investigate and unban.",
+            "Hello, my WhatsApp number is showing as banned. I request a manual review as this is my primary contact."
+        ];
+
+        const banAppeals = [
+            "Reporting this number for spreading malicious links and scamming people. Please take immediate action.",
+            "This user is constantly harassing others and violating community guidelines. Kindly review and ban.",
+            "Spam Alert: This number is sending unauthorized advertisements to many groups. Block this user.",
+            "This account is impersonating a public figure and misusing the platform. Requesting a permanent ban."
+        ];
+
+        function generateAppeal(type) {
+            const num = (type === 'unban') ? document.getElementById('unbanNum').value : document.getElementById('banNum').value;
+            if(!num) return alert("Jani, number to enter karo!");
+
+            const list = (type === 'unban') ? unbanAppeals : banAppeals;
+            const randomMsg = list[Math.floor(Math.random() * list.length)];
+            const subject = (type === 'unban') ? "Account Access Issue" : "Report Violation - " + num;
+            
+            const finalBody = encodeURIComponent(`Number: ${num}\n\nMessage: ${randomMsg}\n\nSent via WA-PRO-REPORTER (Dev: Nawab ZADA)`);
+            const mailTo = "support@support.whatsapp.com";
+
+            window.location.href = `mailto:${mailTo}?subject=${encodeURIComponent(subject)}&body=${finalBody}`;
+        }
+    </script>
+</body>
+</html>
