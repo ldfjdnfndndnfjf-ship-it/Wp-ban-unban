@@ -74,18 +74,25 @@
             }, 1000);
         }
 
+        // --- ALL 8 HEAVY APPEALS INTEGRATED BY NAWAB ZADA ---
         const unbanAppeals = [
-            "My account was banned without reason. I am a professional user and I follow all rules. Please restore it.",
-            "I am experiencing an issue where my number is flagged mistakenly. I have not sent any spam. Kindly re-verify.",
-            "Urgent: My business account is suspended. I haven't violated any terms of service. Please investigate and unban.",
-            "Hello, my WhatsApp number is showing as banned. I request a manual review as this is my primary contact."
+            "Dear WhatsApp Support Team, I am writing this formal appeal to request the immediate restoration of my account linked to this number. It has come to my attention that my service has been suspended due to a perceived violation of the Terms of Service. However, after a thorough self-audit of my recent communication activities, I am confident that my account was flagged erroneously by your automated security systems. I utilize this platform for critical professional and personal coordination, and a disruption of this nature is causing significant distress. I strictly adhere to all community guidelines, including those regarding spam and bulk messaging. I request a manual review of my account logs to verify that no malicious activity originated from my end. I am prepared to provide any necessary documentation to prove my identity and the legitimacy of my usage. Please reconsider this suspension and reinstate my access as soon as possible.",
+            
+            "To the Technical Review Board, my WhatsApp service has been unexpectedly terminated, and I am seeking a detailed investigation into this matter. As a long-term user of your platform, I have always maintained the highest standards of digital etiquette and compliance with your privacy policies. I suspect that my account may have been compromised or mistakenly identified during a routine sweep for automated scripts. I want to clarify that I do not use any third-party modified versions of WhatsApp or unauthorized plugins. This account is my primary gateway for reaching family and essential services, and being disconnected without a clear explanation is highly problematic. I kindly ask you to investigate the metadata associated with my last few sessions, which will confirm that all interactions were legitimate and consensual. I look forward to a positive resolution and the reactivation of my number.",
+
+            "Subject: Formal Request for Account Re-validation. My account has been flagged for a violation that I categorically deny committing. As a law-abiding user, I have never engaged in the distribution of prohibited content or unsolicited messaging. It is highly probable that my IP address or device signature was spoofed by a third-party malicious actor, leading to this false positive ban. I request your security department to perform a deep-packet inspection of the traffic originating from my account to confirm its integrity. This suspension is severely impacting my ability to perform daily essential tasks. I am willing to undergo a full verification process to ensure my account remains secure and compliant with your updated 2026 security protocols. Please expedite the unbanning process.",
+            
+            "Emergency Appeal for Account Restoration. I am reporting a critical error in your automated filtering system which has resulted in the unjust banning of my number. My communication history consists solely of verified contacts and professional groups, with zero reports of harassment or spam from other users. A sudden loss of access to my end-to-end encrypted chats is a violation of my communication rights if no solid proof of policy breach exists. I demand a manual override of this ban by a human moderator who can objectively assess the legitimacy of my account usage. I have always championed the safe use of WhatsApp and continue to do so. Please restore my services immediately to avoid further professional damage."
         ];
 
         const banAppeals = [
-            "Reporting this number for spreading malicious links and scamming people. Please take immediate action.",
-            "This user is constantly harassing others and violating community guidelines. Kindly review and ban.",
-            "Spam Alert: This number is sending unauthorized advertisements to many groups. Block this user.",
-            "This account is impersonating a public figure and misusing the platform. Requesting a permanent ban."
+            "Official Security Report: I am writing to formally report the provided mobile number for severe and persistent violations of the WhatsApp Safety and Security guidelines. This user has been identified as a primary source of coordinated spam, distributing unsolicited and potentially malicious links to numerous users without consent. Such activities pose a significant risk to the integrity of the WhatsApp ecosystem and the privacy of its members. I have documented evidence of this account engaging in deceptive practices, including social engineering and the distribution of prohibited content. To protect the community from further harm, I strongly urge your security team to conduct an immediate forensic audit of this account’s recent broadcast activity. Such behavior is a clear breach of your terms, and a permanent suspension is necessary to maintain a safe environment for all legitimate users.",
+            
+            "Subject: Urgent Violation Report. This communication is to bring to your direct attention a series of egregious policy violations committed by the specified user. My investigation indicates that this account is being used to facilitate fraudulent schemes and harass multiple individuals across various groups. The user is employing automated tools to bypass standard communication limits, which is a direct violation of your technical terms. Furthermore, the content being shared by this account is highly suspicious and appears to be designed for phishing purposes. In order to uphold the safety standards that WhatsApp represents, it is imperative that this account be permanently banned from the platform. Allowing such accounts to remain active undermines user trust and safety. Please escalate this report to your specialized safety unit for a review and subsequent termination of access.",
+
+            "Critical Threat Assessment: This account is actively distributing malware-infected files disguised as legitimate documents. I have monitored the activity of this number and it matches the profile of a compromised account used for wide-scale digital attacks. The rapid-fire messaging pattern suggests the use of unauthorized API scripts which are strictly prohibited under your developer and user policies. To prevent a widespread security breach among your user base, this account must be blacklisted immediately. Failure to act swiftly could lead to more users falling victim to these cyber threats. We request an immediate block on all outgoing messages from this specific target number to contain the risk.",
+            
+            "Harassment and Community Policy Violation: This user has been consistently targeting vulnerable individuals with abusive language and threatening content, violating the core principles of WhatsApp's safe-use policy. Multiple warnings have been ignored, and the behavior has escalated to severe cyber-bullying. This account’s presence on the platform is toxic and harmful to the community's mental well-being and digital safety. We request a permanent ban on this number and all associated device IDs to prevent the user from creating new accounts. WhatsApp should be a space for positive interaction, not a tool for harassment. Please take the necessary disciplinary steps at the earliest."
         ];
 
         function generateAppeal(type) {
@@ -94,13 +101,26 @@
 
             const list = (type === 'unban') ? unbanAppeals : banAppeals;
             const randomMsg = list[Math.floor(Math.random() * list.length)];
-            const subject = (type === 'unban') ? "Account Access Issue" : "Report Violation - " + num;
             
-            const finalBody = encodeURIComponent(`Number: ${num}\n\nMessage: ${randomMsg}\n\nSent via WA-PRO-REPORTER (Dev: Nawab ZADA)`);
-            const mailTo = "support@support.whatsapp.com";
+            const subject = (type === 'unban') ? 
+                `Urgent Appeal for Account: ${num}` : 
+                `Security Alert: Reporting Violation by ${num}`;
+            
+            const finalBody = encodeURIComponent(
+                `OFFICIAL CASE REPORT\n` +
+                `====================\n` +
+                `TARGET: ${num}\n` +
+                `TIMESTAMPS: ${new Date().toLocaleString()}\n\n` +
+                `DETAILED JUSTIFICATION:\n${randomMsg}\n\n` +
+                `-----------------------------------\n` +
+                `SECURED BY: NAWAB ZADA SECURITY HUB\n` +
+                `LOG ID: NZ-00${Math.floor(Math.random() * 999)}`
+            );
 
+            const mailTo = "support@support.whatsapp.com";
             window.location.href = `mailto:${mailTo}?subject=${encodeURIComponent(subject)}&body=${finalBody}`;
         }
     </script>
 </body>
-</html>
+                    </html>
+                    
